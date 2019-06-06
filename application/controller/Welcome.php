@@ -1,12 +1,12 @@
 <?php
 /**
- * 心跳检测
+ * 这是一个控制器的例子
  *
  * @author aaron
  * @version 2016-10-17
  *
  */
-class Heartbeat {
+class Welcome {
 
 	//swoole_server_request 对象  包含所有的请求和响应信息
 	public $request = NULL;
@@ -23,16 +23,24 @@ class Heartbeat {
 		$this->request = $request;
 		$this->response = $response;
 	}
-    
-    /**
-     * 接收心跳检测请求
+	
+	/**
+     * 这是一个action的例子，当url中不存在action部分时，会执行这个方法
      *
      * @author aaron
      * @version 2017-10-17
      *
      */
-    function test()
-    {
-        $this->response->end('ok');
-    } 
+	function index(){
+		//获取get参数
+		$this->request->get['hello'];
+		//获取post参数
+		$this->request->post['hello'];
+		//获取server环境变量
+		$this->request->server['hello'];
+		
+		//发送响应
+		$this->response->end('This is your first program whith lightSwoole...');
+	}
+  
 }
