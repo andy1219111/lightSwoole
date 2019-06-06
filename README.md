@@ -12,7 +12,7 @@ lightSwoole是一个基于swoole的`swoole_http_server`实现的http框架。
 - php版本5.6+
 - swoole版本1.9+
 
-####框架目录结构
+#### 框架目录结构
 1. `application` 应用程序目录，如果你用过codeIgniter、laravel等框架的话肯定对这个目录很熟悉。这个目录就是应用程序目录，以后你写的业务代码大都会放在这里，这下面主要包含了两个目录：
 	1).  `controller`，这里存放所有的控制器
 	2).  `model`，这里存放所有的模型类，原则上，一个模型应该对应一张物理表
@@ -20,7 +20,7 @@ lightSwoole是一个基于swoole的`swoole_http_server`实现的http框架。
 3. `core`，框架核心目录，目前里面只有两个文件`Controller.php`模型和`Model.php`，分别为顶级控制器文件和顶级模型文件，application下所有的文件都继承自这两个文件，如果你想增加公共的方法，可在这两个类中扩充。
 4.  `hooks`，程序钩子存放目录，目前埋点了两个钩子：“On_request_hook”，刚接到请求是执行的钩子；“Pre_handle_hook”，在处理请求之前(进入业务controller之前)做的预处理，一般在这里做一些登录校验、权限校验等。
 5.  `lib`，类库目录，所有用到的第三方的、自己开发的类库都放到这里。
-####控制器
+#### 控制器
 如你之间使用MVC框架的经验类似，controller是整个业务框架中最重要的部分，控制器的名字和URL中urI部分一一对应(后面的版本中会引入route，但仍然保证uri和controller是有对应关系的)。举个栗子：你的请求的URL为`http://myapi.com/my_project/hello_world`,与此URL对应的控制器为`controller/My_project.php`中的`hello_world`方法。
 所有的controller必须继承自顶级`Controller`，该文件在`core/Controller.php`.
 在获取请求参数、发送响应时，需要用到swoole的[`swoole_http_request`](https://wiki.swoole.com/wiki/page/328.html)类和[`swoole_http_response`](https://wiki.swoole.com/wiki/page/329.html)类，这两个类的用法请去swoole官方网站了解。控制器的栗子：
@@ -71,7 +71,7 @@ class Welcome {
   
 }
 ```
-####模型
+#### 模型
 模型就是和数据库打交道的类，建议一个模型类对应数据库的一张表。为了降低框架的学习成本，以及更高的执行效率，lightSwoole没有引入ORM框架。在lightSwoole中，每一个model必须继承自`Model`顶级模型，该模型位于`core/Model.php`中。如果你没有特殊需要，你新建的模型中不需要新建任何方法，所有有关数据库操作的方法将继承自Model顶级模型类。
 在controller中引用model使用`load_model`方法，该方法接收两个参数：模型名称以及该模型对应的数据库配置值。
 - 在controller中引用model：
@@ -151,6 +151,6 @@ $config['db2'] = array('dsn'=>'mysql:host=10.168.243.111;port=4004;dbname=wlecom
 ```
 
 
-####类库
-####钩子
+#### 类库
+#### 钩子
 
