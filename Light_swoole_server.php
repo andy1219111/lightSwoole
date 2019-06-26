@@ -2,8 +2,8 @@
 // 入口文件
 define('ROOT_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 //获取环境变量
-$ipk_env = getenv('IPK_ENV');
-$env = $ipk_env ? $ipk_env : 'testing';
+$env = getenv('LIGHT_SWOOLE_ENV');
+$env = $env ? $env : 'testing';
 define('ENVIRONMENT', $env);
 
 include 'autoload.php';
