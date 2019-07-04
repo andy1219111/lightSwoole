@@ -83,7 +83,7 @@ class Log {
 	{
 		$config = config_item('log_config');
 
-		$this->_log_path = ($config['log_path'] !== '') ? $config['log_path'] : ROOT_PATH.'/logs/';
+		$this->_log_path = ($config['log_path'] !== '') ? $config['log_path'] : ROOT_PATH . '/logs/';
 		$this->_max_files = ($config['log_max_files'] !== '') ? $config['log_max_files'] : 5;
 		$this->_file_ext = (isset($config['log_file_extension']) && $config['log_file_extension'] !== '')
 			? ltrim($config['log_file_extension'], '.') : 'php';
@@ -116,7 +116,6 @@ class Log {
 		}
 	}
 
-	// --------------------------------------------------------------------
 
 	/**
 	 * Write Log File

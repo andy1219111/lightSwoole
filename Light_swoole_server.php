@@ -61,6 +61,7 @@ class Light_swoole_server{
         $this->serv->start();
         
 	}
+
 	/**
 	* swoole启动时的回调方法
 	*
@@ -69,7 +70,8 @@ class Light_swoole_server{
 	public function onStart($serv) 
 	{
 		$this->loger->write_log('info',"The server started. \n");
-    }
+	}
+	
 	/**
 	* 当有客户端连接时的回调
 	*
@@ -111,11 +113,11 @@ class Light_swoole_server{
 				$serv->shutdown();
 				break;
 			case 'version':
-				$version = $swoole_version();
+				$version = swoole_version();
 				$serv->send($fd,$version . "\n");
 				break;
 			case 'stats':
-				$serv->send($fd,"Execute " . $stats . " operation ...\n");
+				$serv->send($fd,"Execute stats  operation ...\n");
 				$status = $serv->stats();
 				$serv->send($fd,json_encode($status) . "\n");
 				break;
@@ -139,26 +141,7 @@ class Light_swoole_server{
             
             //创建定时器 每五分钟查询更新一下需要推送的车场(存在车场管家账户的车场)
 			$ipk_parks_scan = $serv->tick(1000 * 300, function ($timer_id){
-				$iop_db = new DBO(config_item('iop_db'));
-                //查询开启了无人值守的车场
-				$ipk_parks = $iop_db->select('ipk_parkeeper',
-                                                            ['DISTINCT park_code'], 
-                                                            ['where'=>'u_status = 0']
-                                                            );
-                $this->loger->write_log('info',"the ipk parks:" . json_encode($ipk_parks));
-                //删除原有车场
-                $redis_handler = load_class('Redis_operator', config_item('token_redis'));
-                $redis_handler->del('IOP:ipk_parks');
-				if(!empty($ipk_parks))
-                {
-                    
-                    foreach($ipk_parks as $one)
-                    {
-                        $redis_handler->sAdd('IOP:ipk_parks', $one['park_code']);
-                    }   
-                }
-                //关闭数据库连接
-				$iop_db->close();
+				
 			});  
 		}
         if($worker_id == 1)
@@ -199,43 +182,11 @@ class Light_swoole_server{
         $this->loger->write_log('INFO', 'Excute task ' . $task_id . ', from ' . $from_id . ',task data:' . json_encode($data));
         if($from_id == 0)
         {
-            //rabbitMQ连接参数
-            $rabbitmq_param = config_item('rabbitmq_param');
-            //创建rabbitMQ链接
-            $amqp = new Park_record_monitor(array('conn_args'=>array(
-                                                    'host' => $rabbitmq_param['host'],
-                                                    'port' => $rabbitmq_param['port'],
-                                                    'login' => $rabbitmq_param['login'],
-                                                    'password' => $rabbitmq_param['password'],
-                                                    'vhost'=>$rabbitmq_param['vhost']
-                                                    ),
-                                    'exchange_name'=>$rabbitmq_param['exchange_name'],			
-                                    'queue_name'=>$rabbitmq_param['queue_name'],		
-                                    'route_key'=>$rabbitmq_param['route_key']		
-                                )
-                            );
-            $amqp->connect();
-            $amqp->read_message();
+           
         }
         if($from_id == 1)
         {
-            //支付信息队列
-            $rabbitmq_param = config_item('pay_rabbitmq_param');
-            //创建rabbitMQ链接
-            $amqp = new Payment_monitor(array('conn_args'=>array(
-                                                    'host' => $rabbitmq_param['host'],
-                                                    'port' => $rabbitmq_param['port'],
-                                                    'login' => $rabbitmq_param['login'],
-                                                    'password' => $rabbitmq_param['password'],
-                                                    'vhost'=>$rabbitmq_param['vhost']
-                                                    ),
-                                    'exchange_name'=>$rabbitmq_param['exchange_name'],			
-                                    'queue_name'=>$rabbitmq_param['queue_name'],		
-                                    'route_key'=>$rabbitmq_param['route_key']		
-                                )
-                            );
-            $amqp->connect();
-            $amqp->read_message();
+           
         }
         
     	return "Task {$task_id}'s result";
