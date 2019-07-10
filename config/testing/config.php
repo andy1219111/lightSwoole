@@ -39,7 +39,7 @@ $config['log_config'] = array('log_path'=>'/home/data2/logs/eis_server/',
 							'log_threshold'=>4
 							);
 */
-$config['log_config'] = array('log_path'=>'/home/data1/dongbingxu/IPK_API/log/',
+$config['log_config'] = array('log_path'=>'./',
 							'log_file_extension'=>'log',
 							'log_threshold'=>4,
 							'log_max_files'=>10

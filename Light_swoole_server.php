@@ -133,40 +133,6 @@ class Light_swoole_server{
 	function onWorkerStart(swoole_server $serv, $worker_id)
 	{
 		$this->loger->write_log('info',"Work_id " . $worker_id . " started \n");
-        //添加定时器 只在第一个worker启动时创建一个定时器
-		if($worker_id == 0)
-		{
-            //投递第一个任务 监听进出车记录队列
-            $serv->task('');
-            
-            //创建定时器 每五分钟查询更新一下需要推送的车场(存在车场管家账户的车场)
-			$ipk_parks_scan = $serv->tick(1000 * 300, function ($timer_id){
-				
-			});  
-		}
-        if($worker_id == 1)
-        {
-            $serv->task('');
-            //rabbitMQ连接参数
-            $rabbitmq_param = config_item('ipk_arm_websocket_rabbitmq_param');
-
-            //创建rabbitMQ链接
-            $amqp = new Arm_websocket_monitor(array('conn_args'=>array(
-                                                    'host' => $rabbitmq_param['host'],
-                                                    'port' => $rabbitmq_param['port'],
-                                                    'login' => $rabbitmq_param['login'],
-                                                    'password' => $rabbitmq_param['password'],
-                                                    'vhost'=>$rabbitmq_param['vhost']
-                                                    ),
-                                    'exchange_name'=>$rabbitmq_param['exchange_name'],			
-                                    'queue_name'=>$rabbitmq_param['queue_name'],		
-                                    'route_key'=>$rabbitmq_param['route_key'],
-                                    'swoole_obj'=>$this->serv
-                                )
-                            );
-            $amqp->connect();
-            $amqp->read_message();
-        } 
 	}
     
 	/**
@@ -180,14 +146,6 @@ class Light_swoole_server{
 	public function onTask($serv, $task_id, $from_id, $data) 
 	{
         $this->loger->write_log('INFO', 'Excute task ' . $task_id . ', from ' . $from_id . ',task data:' . json_encode($data));
-        if($from_id == 0)
-        {
-           
-        }
-        if($from_id == 1)
-        {
-           
-        }
         
     	return "Task {$task_id}'s result";
     }
