@@ -6,7 +6,7 @@
  * @version 2016-10-17
  *
  */
-class Welcome {
+class Welcome extends Controller{
 
 	//swoole_server_request 对象  包含所有的请求和响应信息
 	public $request = NULL;
@@ -19,9 +19,7 @@ class Welcome {
 	
 	function __construct($swoole_obj,$request,$response)
 	{
-		$this->swoole_obj = $swoole_obj;
-		$this->request = $request;
-		$this->response = $response;
+		parent::__construct($swoole_obj,$request,$response);
 	}
 	
 	/**
@@ -32,15 +30,7 @@ class Welcome {
      *
      */
 	function index(){
-		//获取get参数
-		$this->request->get['hello'];
-		//获取post参数
-		$this->request->post['hello'];
-		//获取server环境变量
-		$this->request->server['hello'];
-		
 		//发送响应
-		$this->response->end('This is your first program whith lightSwoole...');
+		$this->response->end('welcome to use LightSwoole');
 	}
-  
 }

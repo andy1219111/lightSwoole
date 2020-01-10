@@ -1,0 +1,729 @@
+INFO - 2020-01-10 11:22:19 --> The server started. 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:22:19 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:22:59 --> router:{"directory":"","class":"Index","method":"index"}
+INFO - 2020-01-10 11:23:00 --> router:{"directory":"","class":"Favicon.ico","method":"index"}
+INFO - 2020-01-10 11:23:09 --> Client 2 close connection
+
+INFO - 2020-01-10 11:23:09 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:23:09 --> 2020011011230994885-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:26:30 --> The server started. 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:26:30 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:26:33 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:26:33 --> 2020011011263338968-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+[2020-01-10 11:26:33 *45754.1]	ERROR	php_swoole_server_rshutdown (ERRNO 503): Fatal error: Uncaught Error: Using $this when not in object context in /Users/aaron/lightSwoole/lib/DBOManager.php:27
+Stack trace:
+#0 /Users/aaron/lightSwoole/core/Model.php(20): DBOManager::get_instance(Array)
+#1 /Users/aaron/lightSwoole/application/model/User_sms_model.php(18): Model->__construct('db')
+#2 /Users/aaron/lightSwoole/common.php(93): User_sms_model->__construct('db')
+#3 /Users/aaron/lightSwoole/application/controller/Welcome.php(33): load_model('user_sms', 'db')
+#4 /Users/aaron/lightSwoole/Light_swoole_server.php(266): Welcome->index()
+#5 {main}
+  thrown in /Users/aaron/lightSwoole/lib/DBOManager.php on line 27
+[2020-01-10 11:26:33 $45748.0]	WARNING	swManager_check_exit_status: worker#1[pid=45754] abnormal exit, status=255, signal=0
+INFO - 2020-01-10 11:26:33 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:26:34 --> Client 1 close connection
+
+INFO - 2020-01-10 11:28:33 --> Client 2 close connection
+
+INFO - 2020-01-10 11:28:59 --> The server started. 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:28:59 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:29:01 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:29:01 --> 2020011011290110626-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+[2020-01-10 11:29:01 *45853.1]	ERROR	php_swoole_server_rshutdown (ERRNO 503): Fatal error: Uncaught Error: Using $this when not in object context in /Users/aaron/lightSwoole/lib/DBOManager.php:32
+Stack trace:
+#0 /Users/aaron/lightSwoole/core/Model.php(20): DBOManager::get_instance(Array)
+#1 /Users/aaron/lightSwoole/application/model/User_sms_model.php(18): Model->__construct('db')
+#2 /Users/aaron/lightSwoole/common.php(93): User_sms_model->__construct('db')
+#3 /Users/aaron/lightSwoole/application/controller/Welcome.php(33): load_model('user_sms', 'db')
+#4 /Users/aaron/lightSwoole/Light_swoole_server.php(266): Welcome->index()
+#5 {main}
+  thrown in /Users/aaron/lightSwoole/lib/DBOManager.php on line 32
+[2020-01-10 11:29:01 $45847.0]	WARNING	swManager_check_exit_status: worker#1[pid=45853] abnormal exit, status=255, signal=0
+INFO - 2020-01-10 11:29:01 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:29:21 --> The server started. 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:29:21 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:29:22 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:29:22 --> 2020011011292286683-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+[2020-01-10 11:29:22 *45909.1]	ERROR	php_swoole_server_rshutdown (ERRNO 503): Fatal error: Uncaught Error: Using $this when not in object context in /Users/aaron/lightSwoole/lib/DBOManager.php:32
+Stack trace:
+#0 /Users/aaron/lightSwoole/core/Model.php(20): DBOManager::get_instance(Array)
+#1 /Users/aaron/lightSwoole/application/model/User_sms_model.php(18): Model->__construct('db')
+#2 /Users/aaron/lightSwoole/common.php(93): User_sms_model->__construct('db')
+#3 /Users/aaron/lightSwoole/application/controller/Welcome.php(33): load_model('user_sms', 'db')
+#4 /Users/aaron/lightSwoole/Light_swoole_server.php(266): Welcome->index()
+#5 {main}
+  thrown in /Users/aaron/lightSwoole/lib/DBOManager.php on line 32
+[2020-01-10 11:29:22 $45903.0]	WARNING	swManager_check_exit_status: worker#1[pid=45909] abnormal exit, status=255, signal=0
+INFO - 2020-01-10 11:29:22 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:29:50 --> The server started. 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:29:50 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:29:54 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:29:54 --> 2020011011295450045-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+[2020-01-10 11:29:54 *45955.1]	ERROR	php_swoole_server_rshutdown (ERRNO 503): Fatal error: Uncaught Error: Call to a member function prepare() on null in /Users/aaron/lightSwoole/lib/DBO.php:325
+Stack trace:
+#0 /Users/aaron/lightSwoole/lib/DBO.php(301): DBO->_execute('SELECT * FROM o...', Array)
+#1 /Users/aaron/lightSwoole/lib/DBO.php(229): DBO->execute('SELECT * FROM o...')
+#2 /Users/aaron/lightSwoole/lib/DBOManager.php(81): DBO->select('os_user_sms', Array, '*')
+#3 /Users/aaron/lightSwoole/core/Model.php(78): DBOManager->select('os_user_sms', Array, '*')
+#4 /Users/aaron/lightSwoole/application/controller/Welcome.php(35): Model->get('dateline > 1546...')
+#5 /Users/aaron/lightSwoole/Light_swoole_server.php(266): Welcome->index()
+#6 {main}
+  thrown in /Users/aaron/lightSwoole/lib/DBO.php on line 325
+[2020-01-10 11:29:54 $45949.0]	WARNING	swManager_check_exit_status: worker#1[pid=45955] abnormal exit, status=255, signal=0
+INFO - 2020-01-10 11:29:54 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:30:34 --> Client 2 close connection
+
+INFO - 2020-01-10 11:31:10 --> The server started. 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:31:10 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:31:13 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:31:13 --> 2020011011311399191-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:31:55 --> The server started. 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:31:55 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:31:58 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:31:58 --> 2020011011315842984-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:31:59 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:31:59 --> 2020011011315945128-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:33:27 --> The server started. 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:33:27 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:33:31 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:33:31 --> 2020011011333187190-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:29 --> The server started. 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:37:29 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:37:33 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:33 --> 2020011011373393290-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:48 --> Client 2 close connection
+
+INFO - 2020-01-10 11:37:48 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:48 --> 2020011011374860083-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:52 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:52 --> 2020011011375217139-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:52 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:52 --> 2020011011375238757-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:52 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:52 --> 2020011011375258259-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:52 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:52 --> 2020011011375249814-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:53 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:53 --> 2020011011375319143-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:37:53 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:37:53 --> 2020011011375358838-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:01 --> Client 3 close connection
+
+INFO - 2020-01-10 11:38:01 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:01 --> 2020011011380162848-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:01 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:01 --> 2020011011380182135-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:01 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:01 --> 2020011011380153702-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:02 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:02 --> 2020011011380267873-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:02 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:02 --> 2020011011380275380-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:02 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:02 --> 2020011011380296984-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:02 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:02 --> 2020011011380285791-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:02 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:02 --> 2020011011380226369-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:03 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:03 --> 2020011011380328088-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:03 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:03 --> 2020011011380353847-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:03 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:03 --> 2020011011380376530-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:03 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:03 --> 2020011011380372931-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380412752-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380484507-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380448774-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380460816-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380474755-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380481055-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:04 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:04 --> 2020011011380416463-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380535295-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380595988-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380520772-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380567957-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380585352-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:05 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:05 --> 2020011011380526018-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:38:06 --> router:{"directory":"","class":"Welcome","method":"index"}
+INFO - 2020-01-10 11:38:06 --> 2020011011380659465-[/welcome]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:39:48 --> Client 4 close connection
+
+INFO - 2020-01-10 11:41:57 --> The server started. 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 6 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 7 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 8 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 3 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 0 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 9 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 2 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 1 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 4 started 
+
+INFO - 2020-01-10 11:41:57 --> Work_id 5 started 
+
+INFO - 2020-01-10 11:42:09 --> router:{"directory":"","class":"Welcome","method":"read"}
+INFO - 2020-01-10 11:42:09 --> 2020011011420984203-[/welcome/read]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:42:17 --> router:{"directory":"","class":"Welcome","method":"updat"}
+INFO - 2020-01-10 11:42:17 --> 2020011011421711665-[/welcome/updat]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:42:20 --> Client 2 close connection
+
+INFO - 2020-01-10 11:42:25 --> router:{"directory":"","class":"Welcome","method":"update"}
+INFO - 2020-01-10 11:42:25 --> 2020011011422529574-[/welcome/update]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:42:44 --> Client 3 close connection
+
+INFO - 2020-01-10 11:42:44 --> router:{"directory":"","class":"Welcome","method":"update"}
+INFO - 2020-01-10 11:42:44 --> 2020011011424418435-[/welcome/update]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:42:49 --> router:{"directory":"","class":"Welcome","method":"update"}
+INFO - 2020-01-10 11:42:49 --> 2020011011424970549-[/welcome/update]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 11:49:51 --> Client 4 close connection
+
+INFO - 2020-01-10 11:49:51 --> Client 1 close connection
+
+INFO - 2020-01-10 13:37:45 --> router:{"directory":"","class":"Welcome","method":"update"}
+INFO - 2020-01-10 13:37:45 --> 2020011013374546286-[/welcome/update]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:37:54 --> router:{"directory":"","class":"Welcome","method":"update"}
+INFO - 2020-01-10 13:37:54 --> 2020011013375433160-[/welcome/update]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:38:00 --> Client 6 close connection
+
+INFO - 2020-01-10 13:42:29 --> The server started. 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:42:29 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:42:38 --> router:{"directory":"","class":"Welcome","method":"insert"}
+INFO - 2020-01-10 13:42:38 --> 2020011013423823472-[/welcome/insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:43:09 --> Client 2 close connection
+
+INFO - 2020-01-10 13:43:09 --> router:{"directory":"","class":"Welcome","method":"insert"}
+INFO - 2020-01-10 13:43:09 --> 2020011013430929946-[/welcome/insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:43:33 --> Client 3 close connection
+
+INFO - 2020-01-10 13:43:33 --> router:{"directory":"","class":"Welcome","method":"insert"}
+INFO - 2020-01-10 13:43:33 --> 2020011013433353774-[/welcome/insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:43:49 --> Client 4 close connection
+
+INFO - 2020-01-10 13:43:49 --> router:{"directory":"","class":"Read","method":"index"}
+INFO - 2020-01-10 13:43:57 --> router:{"directory":"","class":"Welcome","method":"read"}
+INFO - 2020-01-10 13:43:57 --> 2020011013435799766-[/welcome/read]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:48:00 --> Client 5 close connection
+
+INFO - 2020-01-10 13:49:27 --> Client 1 close connection
+
+INFO - 2020-01-10 13:49:59 --> The server started. 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:49:59 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:50:05 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:50:05 --> 2020011013500586834-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:50:17 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:50:17 --> Client 2 close connection
+
+INFO - 2020-01-10 13:50:17 --> 2020011013501770490-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:50:52 --> Client 3 close connection
+
+INFO - 2020-01-10 13:50:52 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:50:52 --> 2020011013505250894-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:51:09 --> The server started. 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:51:09 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:51:14 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:51:14 --> 2020011013511468479-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:51:31 --> Client 2 close connection
+
+INFO - 2020-01-10 13:51:31 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:51:31 --> 2020011013513145154-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:52:57 --> The server started. 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:52:57 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:53:09 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:53:09 --> 2020011013530956287-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:53:45 --> The server started. 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:53:45 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:53:47 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:53:47 --> 2020011013534740959-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:53:54 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:53:54 --> 2020011013535478325-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:55:15 --> The server started. 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:55:15 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:55:19 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:55:19 --> 2020011013551926557-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:55:21 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:55:21 --> 2020011013552159230-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:56:04 --> Client 2 close connection
+
+INFO - 2020-01-10 13:56:04 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:56:04 --> 2020011013560474223-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:56:15 --> The server started. 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:56:15 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:56:20 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:56:20 --> 2020011013562075349-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:56:23 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:56:23 --> 2020011013562379644-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 13:58:01 --> Client 2 close connection
+
+INFO - 2020-01-10 13:58:54 --> The server started. 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 8 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 9 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 7 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 6 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 0 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 2 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 3 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 4 started 
+
+INFO - 2020-01-10 13:58:54 --> Work_id 5 started 
+
+INFO - 2020-01-10 13:59:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 13:59:02 --> 2020011013590265918-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+[2020-01-10 13:59:02 *47486.1]	ERROR	php_swoole_server_rshutdown (ERRNO 503): Fatal error: Uncaught Error: Call to a member function rowCount() on null in /Users/aaron/lightSwoole/lib/DBO.php:266
+Stack trace:
+#0 /Users/aaron/lightSwoole/lib/DBOManager.php(155): DBO->duplicate_insert('os_user_sms', Array, Array)
+#1 /Users/aaron/lightSwoole/core/Model.php(154): DBOManager->duplicate_insert('os_user_sms', Array, Array)
+#2 /Users/aaron/lightSwoole/application/controller/Welcome.php(80): Model->duplicate_insert(Array, Array)
+#3 /Users/aaron/lightSwoole/Light_swoole_server.php(266): Welcome->duplicate_insert()
+#4 {main}
+  thrown in /Users/aaron/lightSwoole/lib/DBO.php on line 266
+[2020-01-10 13:59:02 $47480.0]	WARNING	swManager_check_exit_status: worker#1[pid=47486] abnormal exit, status=255, signal=0
+INFO - 2020-01-10 13:59:02 --> Work_id 1 started 
+
+INFO - 2020-01-10 13:59:15 --> Client 2 close connection
+
+INFO - 2020-01-10 14:07:21 --> The server started. 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 6 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 8 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 9 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 0 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 7 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 2 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 1 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 3 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 5 started 
+
+INFO - 2020-01-10 14:07:21 --> Work_id 4 started 
+
+INFO - 2020-01-10 14:07:27 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:07:27 --> 2020011014072717376-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:07:52 --> Client 2 close connection
+
+INFO - 2020-01-10 14:07:52 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:07:52 --> 2020011014075263649-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:01 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:01 --> 2020011014080162005-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080294710-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080281345-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080239036-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080275886-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080277423-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:02 --> Client 3 close connection
+
+INFO - 2020-01-10 14:08:02 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:02 --> 2020011014080293785-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:03 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:03 --> 2020011014080394106-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:03 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:03 --> 2020011014080379550-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:03 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:03 --> 2020011014080366999-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:03 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:08:03 --> 2020011014080328720-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:08:15 --> Client 4 close connection
+
+INFO - 2020-01-10 14:09:13 --> The server started. 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 6 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 8 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 7 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 9 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 0 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 1 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 2 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 3 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 4 started 
+
+INFO - 2020-01-10 14:09:13 --> Work_id 5 started 
+
+INFO - 2020-01-10 14:09:17 --> router:{"directory":"","class":"Welcome","method":"duplicate_insert"}
+INFO - 2020-01-10 14:09:17 --> 2020011014091717903-[/welcome/duplicate_insert]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:09:21 --> router:{"directory":"","class":"Welcome","method":"replace"}
+INFO - 2020-01-10 14:09:21 --> 2020011014092140104-[/welcome/replace]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:09:27 --> Client 2 close connection
+
+INFO - 2020-01-10 14:09:40 --> router:{"directory":"","class":"Welcome","method":"replace"}
+INFO - 2020-01-10 14:09:40 --> 2020011014094053830-[/welcome/replace]-GET(Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36):post:get:post-raw:
+INFO - 2020-01-10 14:10:31 --> Client 3 close connection
+
+INFO - 2020-01-10 14:18:01 --> Client 1 close connection
+

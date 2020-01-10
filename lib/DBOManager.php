@@ -14,7 +14,7 @@ class DBOManager
     //存放数据库连接对象的容器 读写分离
     private $connections = ['w' => null, 'r' => null];
 
-    private $instance = null;
+    static $instance = null;
 
     /**
      * 得到数据库连接管理器对象
@@ -24,12 +24,12 @@ class DBOManager
      */
     public static function get_instance($cofnig)
     {
-        if($this->instance instanceof self){
+        if(self::$instance instanceof self){
             return $this->instance;
         }
-        $this->instance = new self();
-        $this->instance->init($cofnig);
-        return $this->instance;
+        self::$instance = new self();
+        self::$instance->init($cofnig);
+        return self::$instance;
     }
 
     
@@ -152,7 +152,23 @@ class DBOManager
      */
     function duplicate_insert($table, $add_values, $update_values)
     {
-        return $this->connections['w']->replace($table, $add_values, $update_values);
+        return $this->connections['w']->duplicate_insert($table, $add_values, $update_values);
+    }
+
+    /**
+     * 执行自定义的sql语句 用于执行较复杂的sql
+     *
+     * @param string $sql
+     * @return mixed 查询得到的数据或影响的行数
+     */
+    function query($sql)
+    {
+        $sql = trim($sql);
+		if (strpos($sql, 'select') === 0 || strpos($sql, 'SELECT') === 0) {
+			return $this->connections['r']->query($sql);
+		} else {
+			return $this->connections['w']->exec($sql);
+		}
     }
 
 }

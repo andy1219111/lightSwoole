@@ -39,11 +39,7 @@ class DBO
 		if (isset($db_config['is_is_persistent']) && $db_config['is_persistent'] == true) {
 			$this->driver_option[PDO::ATTR_PERSISTENT] = TRUE;
 		}
-		try {
-			$this->_pdo = $this->connect();
-		} catch (PDOException $e) {
-			simple_log($e->getMessage());
-		}
+		$this->_pdo = $this->connect();
 	}
 
 	/**
@@ -54,10 +50,17 @@ class DBO
 	 */
 	function connect()
 	{
-		$pdo = new PDO($this->db_config['dsn'], $this->db_config['username'], $this->db_config['password'], $this->driver_option);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		return $pdo;
+		try {
+			simple_log('connect the database.........','DEBUG');
+			$pdo = new PDO($this->db_config['dsn'], $this->db_config['username'], $this->db_config['password'], $this->driver_option);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			simple_log('connect the database success.........','DEBUG');
+			return $pdo;
+		} catch (PDOException $e) {
+			simple_log('connect the database failed.........','ERROR');
+			simple_log($e->getMessage());
+		}
 	}
 
 	/**
@@ -245,22 +248,23 @@ class DBO
 	function duplicate_insert($table, $add_values, $update_values)
 	{
 		$_addFields = array();
-		$_addValues = array();
-		$param_tag = array();
+		$bind_params = array();
+		$placeholder_insert = array();
 		$update_fields = array();
 		foreach ($add_values as $_key => $_value) {
 			$_addFields[] = $_key;
-			$_addValues[] = $_value;
-			$param_tag[] = '?';
+			$bind_params[] = $_value;
+			$placeholder_insert[] = '?';
 		}
 		foreach ($update_values as $_key => $_value) {
-			$update_fields[] = "$_key=$_value";
+			$update_fields[] = "$_key=?";
+			$bind_params[] = $_value;
 		}
 		$_addFields = implode(',', $_addFields);
-		$param_str = implode(',', $param_tag);
+		$placeholder_str = implode(',', $placeholder_insert);
 		$update_str = implode(',', $update_fields);
-		$_sql = "INSERT INTO $table ($_addFields) VALUES($param_str) on duplicate key update $update_str";
-		return $this->execute($_sql, $_addValues)->rowCount();
+		$_sql = "INSERT INTO $table ($_addFields) VALUES($placeholder_str) on duplicate key update $update_str";
+		return $this->execute($_sql, $bind_params)->rowCount();
 	}
 
 	/**

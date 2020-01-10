@@ -38,7 +38,7 @@ class Light_swoole_server{
 		$this->serv->set(array(
 							'worker_num' => $worker_num,
 							//开启守护进程模式
-							'daemonize' => true,
+							'daemonize' => false,
 							'max_request' => 2000,
 							'dispatch_mode' => 2,
 							'debug_mode'=> 1,
@@ -266,9 +266,9 @@ class Light_swoole_server{
 			call_user_func_array(array(&$controller, $route['method']),array());
             
             //hook埋点 在处理完请求后执行
-            if(file_exists(ROOT_PATH . '/hooks/After_handle.php'))
+            if(file_exists(ROOT_PATH . '/hooks/After_handle_hook.php'))
             {
-                $after_handle_hook = new After_handle($this->serv, $request, $response, $route);
+                $after_handle_hook = new After_handle_hook($this->serv, $request, $response, $route);
                 $after_handle_hook->run();
             }
 		}

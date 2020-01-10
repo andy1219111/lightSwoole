@@ -9,20 +9,20 @@ $config['task_worker_num'] = 4;
 //数据库配置
 $config['db'] = [
 					'w'=>[
-							'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
-							'username'=>'config',
-							'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
+							'dsn'=>'mysql:host=127.0.0.1;port=3307;dbname=huoxiaoyuan',
+							'username'=>'huoxiaoyuan',
+							'password'=>'PrEdd4bnfFdRwAHP',
 							'charset'=>'utf8',
 							//使用持久化连接
 							'is_persistent'=>true,
 						],
 					'r'=>[
-							'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
-							'username'=>'config',
-							'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
-							'charset'=>'utf8',
-							//使用持久化连接
-							'is_persistent'=>true,
+						'dsn'=>'mysql:host=127.0.0.1;port=3307;dbname=huoxiaoyuan',
+						'username'=>'huoxiaoyuan',
+						'password'=>'PrEdd4bnfFdRwAHP',
+						'charset'=>'utf8',
+						//使用持久化连接
+						'is_persistent'=>true,
 							//访问权重
 							//'weight'=>1,
 						]
@@ -53,7 +53,7 @@ $config['log_config'] = array('log_path'=>'/home/data2/logs/eis_server/',
 							'log_threshold'=>4
 							);
 */
-$config['log_config'] = array('log_path'=>'./',
+$config['log_config'] = array('log_path'=>ROOT_PATH . './log/',
 							'log_file_extension'=>'log',
 							'log_threshold'=>4,
 							'log_max_files'=>10
