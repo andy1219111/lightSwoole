@@ -6,13 +6,27 @@ $config['worker_num'] = 6;
 //任务进程数量
 $config['task_worker_num'] = 4;
 
-//config_cloud数据库配置
-$config['db'] = array(
-                                'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
-                                'username'=>'config',
-                                'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
-                                'charset'=>'utf8',
-                            );
+//数据库配置
+$config['db'] = [
+					'w'=>[
+							'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
+							'username'=>'config',
+							'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
+							'charset'=>'utf8',
+							//使用持久化连接
+							'is_persistent'=>true,
+						],
+					'r'=>[
+							'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
+							'username'=>'config',
+							'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
+							'charset'=>'utf8',
+							//使用持久化连接
+							'is_persistent'=>true,
+							//访问权重
+							//'weight'=>1,
+						]
+				];
                          
 //进出车数据rabbitMQ相关配置
 $config['rabbitmq_param'] = array('host'=>'127.0.0.1',

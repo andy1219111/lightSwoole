@@ -8,11 +8,11 @@ $config['task_worker_num'] = 4;
 
 //config_cloud数据库配置
 $config['db'] = array(
-                                'dsn'=>'mysql:host=127.0.0.1;port=4004;dbname=config_cloud',
-                                'username'=>'user',
-                                'password'=>'12345',
-                                'charset'=>'utf8',
-                            );                          
+						'dsn'=>'mysql:host=127.0.0.1;port=4004;dbname=config_cloud',
+						'username'=>'user',
+						'password'=>'12345',
+						'charset'=>'utf8',
+					);                          
 //rabbitMQ相关配置
 $config['rabbitmq_param'] = array('host'=>'127.0.0.1',
 									'port'=>'5672',

@@ -8,16 +8,16 @@ Class Model {
 
     public $table_name = '';
     
-    //数据库连接对象的实例
+    //数据库连接对象管理器的实例 在DBO类之外封装了一层，用于实现读写分离
     public $dbo = NULL;
     
     /**
     * 构造函数
     *
     */
-    public function __construct($db_config)
+    public function __construct($config_key)
     {
-        $this->dbo = new DBO(config_item($db_config)); 
+        $this->dbo = DBOManager::get_instance(config_item($config_key)); 
     }
     
     /**
@@ -40,7 +40,7 @@ Class Model {
     * @return array
     *
     */
-    function getone($fields, $where = '', $order_by = '')
+    function getone($where = '', $order_by = '', $fields = '*')
     {
         if($where != '')
         {
@@ -51,14 +51,7 @@ Class Model {
         {
             $param['order'] = $order_by;
         }
-        $param['limit'] = 1;
-        $data = $this->dbo->select($this->table_name, $fields, $param);
-        
-        if(empty($data))
-        {
-            return [];
-        }
-        return $data[0];
+        return $this->dbo->select_one($this->table_name, $param, $fields);
     }
     
     /**
@@ -71,7 +64,7 @@ Class Model {
     * @return array
     *
     */
-    function get($fields, $where, $order_by = '', $limit = 0)
+    function get($where, $order_by = '', $limit = 0, $fields = '*')
     {
         $param['where'] = $where;
         if($limit !== 0)
@@ -82,11 +75,7 @@ Class Model {
         {
             $param['order'] = $order_by;
         }
-        $data = $this->dbo->select($this->table_name, $fields, $param);
-        if(empty($data))
-        {
-            return [];
-        }
+        $data = $this->dbo->select($this->table_name, $param, $fields);
         return $data;
     }
     
@@ -97,9 +86,9 @@ Class Model {
     * @return array
     *
     */
-    function get_count($where_str = '')
+    function count($where = '')
     {
-        return $this->dbo->total($this->table_name, $where_str);
+        return $this->dbo->count($this->table_name, $where);
     }
     
     /**
@@ -109,9 +98,9 @@ Class Model {
     * @return array
     *
     */
-    function add($data)
+    function insert($data)
     {
-        return $this->dbo->add($this->table_name, $data);
+        return $this->dbo->insert($this->table_name, $data);
     }
     
     /**
@@ -129,13 +118,13 @@ Class Model {
     /**
     * 删除记录
     *
-    * @param array where_array 包含删除条件的数组
+    * @param array where 包含删除条件的数组
     * @return array
     *
     */
-    function delete($where_array)
+    function delete($where)
     {
-        return $this->dbo->delete($this->table_name, $where_array);
+        return $this->dbo->delete($this->table_name, $where);
     }
     
     /**
@@ -148,7 +137,7 @@ Class Model {
     */
     function update($data, $where)
     {
-        return $this->dbo->update($this->table_name, $where, $data);
+        return $this->dbo->update($this->table_name, $data, $where);
     }
     
     

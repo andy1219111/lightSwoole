@@ -12,37 +12,52 @@ class DBO
 	private $_pdo = null;
 	//语句集对象
 	private $_stmt = null;
-
-	private $dsn = null;
-
-	private $db_user = null;
-
-	private $is_persistent = null;
-
-	private $db_password = null;
+	//数据库配置
+	private $db_config = null;
+	//数据库驱动属性
 	private $driver_option = array();
 
-
-	//构造函数
-	function __construct($db_config, $is_persistent = FALSE)
+	/**
+	 * 构造器
+	 *
+	 * @param array $db_config 包含了数据库连接参数的数组
+	 * 
+	 *[
+	 *		'dsn'=>'mysql:host=127.0.0.1;port=4000;dbname=config_cloud',
+	 *		'username'=>'config',
+	 *		'password'=>'RmUyNLd95sZr1fcbouRxLXuKa',
+	 *		'charset'=>'utf8',
+	 *		//使用持久化连接
+	 *		'is_persistent'=>true,
+	 *	]
+	 */
+	function __construct($db_config)
 	{
-		try {
-			//$db_config = config_item('db_config');
-			$this->driver_option = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $db_config['charset']);
-			if ($is_persistent) {
-				$this->driver_option[PDO::ATTR_PERSISTENT] = TRUE;
-			}
-			$this->is_persistent = $is_persistent;
-			$this->dsn = $db_config['dsn'];
-			$this->db_user = $db_config['username'];
-			$this->db_password = $db_config['password'];
-
-			$this->_pdo = new PDO($this->dsn, $this->db_user, $this->db_password, $this->driver_option);
-			$this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$this->_pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-		} catch (PDOException $e) {
-			print_r($e->getMessage());
+		$this->db_config = $db_config;
+		$this->driver_option = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $this->db_config['charset']);
+		//使用持久化连接
+		if (isset($db_config['is_is_persistent']) && $db_config['is_persistent'] == true) {
+			$this->driver_option[PDO::ATTR_PERSISTENT] = TRUE;
 		}
+		try {
+			$this->_pdo = $this->connect();
+		} catch (PDOException $e) {
+			simple_log($e->getMessage());
+		}
+	}
+
+	/**
+	 * 根据指定的配置创建一个数据库连接
+	 *
+	 * @param array $db_config
+	 * @return PDO $pdo
+	 */
+	function connect()
+	{
+		$pdo = new PDO($this->db_config['dsn'], $this->db_config['username'], $this->db_config['password'], $this->driver_option);
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+		return $pdo;
 	}
 
 	/**
@@ -54,14 +69,14 @@ class DBO
 	{
 		try {
 			$this->_pdo = NULL;
-			$this->_pdo = new PDO($this->dsn, $this->db_user, $this->db_password, $this->driver_option);
+			$this->_pdo = new PDO($this->db_config['dsn'], $this->db_config['username'], $this->db_config['password'], $this->driver_option);
 			$this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$this->_pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		} catch (PDOException $e) {
-			print_r($e->getMessage());
+			simple_log($e->getMessage());
 		}
 	}
-	
+
 	/**
 	 * 插入数据
 	 *
@@ -69,7 +84,7 @@ class DBO
 	 * @param array $_addData
 	 * @return int
 	 */
-	public function add($_table, array $_addData)
+	public function insert($_table, array $_addData)
 	{
 		$_addFields = array();
 		$_addValues = array();
@@ -144,7 +159,7 @@ class DBO
 	 * @param array $_updateData 要更新的数据的键值数组
 	 * @return int 更新数据的条数
 	 */
-	public function update($_table, $where, array $_updateData)
+	public function update($_table, array $_updateData, $where)
 	{
 		$_setData = '';
 		$_where = 'WHERE ' . $this->handle_where($where);
@@ -170,9 +185,19 @@ class DBO
 		return $this->execute($_sql)->rowCount();
 	}
 
-	//删除
+	/**
+	 * 执行delete语句
+	 *
+	 * @param string $_table 表名
+	 * @param mixed $where 删除条件
+	 * @return void
+	 */
 	public function delete($_table, $where)
 	{
+		if (empty($where)) {
+			simple_log('delete data must set where condition', 'ERROR');
+			return false;
+		}
 		$_where = 'WHERE ' . $this->handle_where($where);
 		$_sql = "DELETE FROM $_table $_where";
 		return $this->execute($_sql)->rowCount();
@@ -186,9 +211,9 @@ class DBO
 	 * @param array $_param
 	 * @return array
 	 */
-	public function select($_table, array $_fileld, array $_param = array())
+	public function select($_table, array $_param = array(), $_filelds = '*')
 	{
-		$_limit = $_order = $_where = $_like = '';
+		$_limit = $_order = $_where = '';
 		if (is_array($_param) && !empty($_param)) {
 			$_limit = isset($_param['limit']) ? 'LIMIT ' . $_param['limit'] : '';
 			$_order = isset($_param['order']) ? 'ORDER BY ' . $_param['order'] : '';
@@ -196,9 +221,12 @@ class DBO
 				$_where = 'WHERE ' . $this->handle_where($_param['where']);
 			}
 		}
-		$_selectFields = implode(',', $_fileld);
-		$_sql = "SELECT $_selectFields FROM $_table $_where $_order $_limit";
-		$this->_stmt = $this->execute($_sql);
+		if (is_array($_filelds)) {
+			$_filelds = implode(',', $_filelds);
+		}
+
+		$_sql = "SELECT $_filelds FROM $_table $_where $_order $_limit";
+		$this->execute($_sql);
 		$_result = array();
 		while ($_objs = $this->_stmt->fetch(PDO::FETCH_ASSOC)) {
 			$_result[] = $_objs;
@@ -209,9 +237,9 @@ class DBO
 	/**
 	 * duplicate 插入，不存在则插入，存在则更新
 	 *
-	 * @param [type] $table
-	 * @param [type] $add_values
-	 * @param [type] $update_values
+	 * @param string $table
+	 * @param array $add_values
+	 * @param array $update_values
 	 * @return void
 	 */
 	function duplicate_insert($table, $add_values, $update_values)
@@ -242,7 +270,7 @@ class DBO
 	 * @param mixed $where
 	 * @return void
 	 */
-	public function total($_table, $where = '')
+	public function count($_table, $where = '')
 	{
 		if ($where != '') {
 			$where = 'WHERE ' . $this->handle_where($where);
@@ -270,14 +298,8 @@ class DBO
 	public function execute($_sql, $param = array())
 	{
 		try {
-			$this->_stmt = $this->_pdo->prepare($_sql);
-			if (!empty($param)) {
-				$this->_stmt->execute($param);
-			} else {
-				$this->_stmt->execute();
-			}
+			$this->_stmt = $this->_execute($_sql, $param);
 		} catch (PDOException  $e) {
-
 			simple_log('SQL语句：' . $_sql . ' 错误信息：' . $e->getMessage(), 'ERROR');
 			$err_info = $this->_pdo->errorInfo();
 			//数据库连接断开  重连后重新查询
@@ -285,15 +307,28 @@ class DBO
 				simple_log("开始重连数据库...", 'DEBUG');
 				$this->reconnect();
 				simple_log("重连数据库成功，重试执行sql语句...", 'DEBUG');
-				$this->_stmt = $this->_pdo->prepare($_sql);
-				if (!empty($param)) {
-					$this->_stmt->execute($param);
-				} else {
-					$this->_stmt->execute();
-				}
+				$this->_stmt = $this->_execute($_sql, $param);
 			}
 		}
 		return $this->_stmt;
+	}
+
+	/**
+	 * 执行最终的sql语句
+	 *
+	 * @param string $_sql
+	 * @param array $param sql实际传参，用于预处理语句
+	 * @return PDOStatement
+	 */
+	function _execute($_sql, $param = array())
+	{
+		$_stmt = $this->_pdo->prepare($_sql);
+		if (!empty($param)) {
+			$_stmt->execute($param);
+		} else {
+			$_stmt->execute();
+		}
+		return $_stmt;
 	}
 
 	//执行原始的sql查询
