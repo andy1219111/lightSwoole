@@ -175,7 +175,7 @@ class Log {
 		$message .= $level.' - '.$date.' --> '.$msg."\n";
 
 		//flock($fp, LOCK_EX);
-
+		$result = 0;
 		for ($written = 0, $length = strlen($message); $written < $length; $written += $result)
 		{
 			if (($result = fwrite($fp, substr($message, $written))) === FALSE)

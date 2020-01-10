@@ -113,4 +113,43 @@ class Controller{
         return json_decode($user_info, true);
     }
 
+    /**
+     * 加载模板 显示html页面
+     *
+     * @param string $view_path 模板路径
+     * @param array $params 要导入到模板中的变量
+     * @return void
+     */
+    function view($view_path,$params = [],$use_layout = false)
+    {
+        //如果模板路径中没有后缀名  补充上
+        if(substr(trim($view_path),-4) != '.php'){
+            $view_path .= '.php'; 
+        }
+        $view_file = ROOT_PATH . 'application/view/' . $view_path;
+        if(!file_exists($view_file)){
+            $this->loger->write_log('ERROR','template fileis not exist:' . $view_path);
+            $this->response->end('template fileis not exist');
+        }
+        //将标量导出 提供给模板使用
+        if(!empty($params)){
+            extract($params);
+        }
+        //开启缓冲区
+        ob_start();
+        include $view_file;
+        $buffer = ob_get_clean();
+        //使用布局模板
+        if($use_layout){
+            $new_param['content'] = $buffer;
+            extract($new_param);
+            include ROOT_PATH . 'application/view/layout.php';
+            $buffer = ob_get_clean();
+            unset($new_param);
+        }
+        //结束并清空缓冲区
+        @ob_end_clean();
+        $this->response->end($buffer);
+        unset($buffer,$params);
+    }
 }

@@ -30,7 +30,10 @@ class Welcome extends Controller{
      *
      */
 	function index(){
+		
+		$data['param'] = '欢迎您使用LightSwoole,';
+		$this->view('index.php',$data);
 		//发送响应
-		$this->response->end('welcome to use LightSwoole');
+		//$this->response->end('welcome to use LightSwoole');
 	}
 }
