@@ -177,8 +177,8 @@ class DBO
 	/**
 	 * 验证指定条件的数据是否存在
 	 *
-	 * @param [string] $_table 表名
-	 * @param [mixed] $where 查询条件，字符串或包含查询条件的数组
+	 * @param string $_table 表名
+	 * @param mixed $where 查询条件，字符串或包含查询条件的数组
 	 * @return int
 	 */
 	public function is_exist($_table, $where)
@@ -335,6 +335,36 @@ class DBO
 		return $_stmt;
 	}
 
+	/**
+	 * 开启事务
+	 *
+	 * @return void
+	 */
+	function  begin_transaction()
+	{
+		$this->_pdo->beginTransaction();
+	}
+
+	/**
+	 * 提交事务
+	 *
+	 * @return void
+	 */
+	function commit()
+	{
+		$this->_pdo->commit();
+	}
+
+	/**
+	 * 事务回滚
+	 *
+	 * @return void
+	 */
+	function roll_back()
+	{
+		$this->_pdo->rollBack();
+	}
+	
 	//执行原始的sql查询
 	function query($sql)
 	{

@@ -128,10 +128,10 @@ class Controller{
         }
         $view_file = ROOT_PATH . 'application/view/' . $view_path;
         if(!file_exists($view_file)){
-            $this->loger->write_log('ERROR','template fileis not exist:' . $view_path);
+            $this->loger->write_log('ERROR','template file is not exist:' . $view_path);
             $this->response->end('template fileis not exist');
         }
-        //将标量导出 提供给模板使用
+        //将变量导出 提供给模板使用
         if(!empty($params)){
             extract($params);
         }

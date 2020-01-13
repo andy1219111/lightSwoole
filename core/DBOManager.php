@@ -171,4 +171,34 @@ class DBOManager
 		}
     }
 
+    /**
+     * 开启事务
+     *
+     * @return void
+     */
+    function begin_transaction()
+    {
+        $this->connections['w']->begin_transaction();
+    }
+
+    /**
+     * 提交事务
+     *
+     * @return void
+     */
+    function commit()
+    {
+        $this->connections['w']->commit();
+    }
+
+    /**
+     * 回滚事务
+     *
+     * @return void
+     */
+    function roll_back()
+    {
+        $this->connections['w']->roll_back();
+    }
+
 }
