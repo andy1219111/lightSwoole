@@ -7,16 +7,14 @@
  *
  */
 class Welcome extends Controller{
-
-	//swoole_server_request 对象  包含所有的请求和响应信息
-	public $request = NULL;
 	
-	//swoole_server_response 对象  包含所有的响应操作
-	public $response = NULL;
-	
-	//swoole 实例
-	public $swoole_obj = NULL;
-	
+	/**
+	 * 控制器构造函数
+	 *
+	 * @param swoole_server $swoole_obj swoole_http_server的实例
+	 * @param swoole_http_request $request swoole http request的对象  包含了请求相关信息
+	 * @param swoole_http_response $response swoole http response 响应对象
+	 */
 	function __construct($swoole_obj,$request,$response)
 	{
 		parent::__construct($swoole_obj,$request,$response);
