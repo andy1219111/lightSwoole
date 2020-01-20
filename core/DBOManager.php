@@ -9,12 +9,12 @@
 class DBOManager
 {
 
-    private $db_config = null;
+    private $db_config = [];
 
     //存放数据库连接对象的容器 读写分离
     private $connections = ['w' => null, 'r' => null];
 
-    static $instance = null;
+    static $instances = [];
 
     /**
      * 得到数据库连接管理器对象
@@ -22,14 +22,16 @@ class DBOManager
      * @param array $cofnig 包含数据库配置的数组
      * @return void
      */
-    public static function get_instance($cofnig)
+    public static function get_instance($config)
     {
-        if(self::$instance instanceof self){
-            return $this->instance;
+        //配置key 用来标识一组数据配置
+        $config_key = $config['dsn'] . '-' . $config['username'];
+        if(isset(self::$instances[$config_key]) && self::$instances[$config_key] instanceof self){
+            return self::$instances[$config_key];
         }
-        self::$instance = new self();
-        self::$instance->init($cofnig);
-        return self::$instance;
+        self::$instances[$config_key] = new self();
+        self::$instances[$config_key]->init($config);
+        return self::$instances[$config_key];
     }
 
     
@@ -39,16 +41,16 @@ class DBOManager
      * @param array $cofnig 包含数据库配置的数组
      * @return void
      */
-    private function init($cofnig)
+    private function init($config)
     {
-        $this->db_config = $cofnig;
-        if (!isset($cofnig['w'])) {
-            $this->connections['w'] = new DBO($cofnig);
+        $this->db_config = $config;
+        if (!isset($config['w'])) {
+            $this->connections['w'] = new DBO($config);
             $this->connections['r'] = $this->connections['w'];
         } else {
             //进行读写分离的对象构建
-            $this->connections['w'] = new DBO($cofnig['w']);
-            $this->connections['r'] = new DBO($cofnig['r']);
+            $this->connections['w'] = new DBO($config['w']);
+            $this->connections['r'] = new DBO($config['r']);
         }
     }
 
