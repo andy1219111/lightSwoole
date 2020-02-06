@@ -22,15 +22,15 @@ class DBOManager
      * @param array $cofnig 包含数据库配置的数组
      * @return void
      */
-    public static function get_instance($config)
+    public static function get_instance($config_key)
     {
-        //配置key 用来标识一组数据配置
-        $config_key = $config['dsn'] . '-' . $config['username'];
+        //数据库配置项的key，每个配置创建一个实例，保存在一个键值数组中
         if(isset(self::$instances[$config_key]) && self::$instances[$config_key] instanceof self){
             return self::$instances[$config_key];
         }
         self::$instances[$config_key] = new self();
-        self::$instances[$config_key]->init($config);
+        //根据配置项 得到具体的配置参数 进行DBO对象的初始化
+        self::$instances[$config_key]->init(config_item($config_key));
         return self::$instances[$config_key];
     }
 

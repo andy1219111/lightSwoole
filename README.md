@@ -64,7 +64,7 @@ $redis_config = config_item('redis1', 'redis.php');
  * @version 2016-10-17
  *
  */
-class Welcome {
+class Welcome extends Controller{
 
 	//swoole_server_request 对象  包含所有的请求和响应信息
 	public $request = NULL;
@@ -166,20 +166,38 @@ SQL;
  
 }
 ```
-- 数据库配置存放于config/config.php中，你可以在这里添加任意个你自己的数据库配置信息：
+- 数据库配置存放于config/config.php中，数据库的配置支持读写分离，你只需要在配置中增加‘r’（读数据库），‘w’（写数据库）即可；你也可以不配置主从，参考'db2'配置，你可以在这里添加任意个你自己的数据库配置信息：
 ```
-//数据库配置1
-$config['db1'] = array('dsn'=>'mysql:host=10.168.243.555;port=4004;dbname=wlecome',
-								'username'=>'user',
-								'password'=>'hJd7dgVKgXmamFs2du8CJZJlaoDnOL',
-								'charset'=>'utf8',
-							);
-//数据库配置2
-$config['db2'] = array('dsn'=>'mysql:host=10.168.243.111;port=4004;dbname=wlecome2',
-								'username'=>'reader',
-								'password'=>'pds3G1W0fdbiF3ivQRU9KnCgJ3W065',
-								'charset'=>'utf8',
-							);
+//数据库配置1，配置了读写分离
+$config['db1'] = [
+					'w'=>[
+							'dsn'=>'mysql:host=127.0.0.1;port=3307;dbname=huoxiaoyuan',
+							'username'=>'huoxiaoyuan',
+							'password'=>'PrEdd4bnfFdRwAHP',
+							'charset'=>'utf8',
+							//使用持久化连接
+							'is_persistent'=>true,
+						],
+					'r'=>[
+						'dsn'=>'mysql:host=127.0.0.1;port=3307;dbname=huoxiaoyuan',
+						'username'=>'huoxiaoyuan',
+						'password'=>'PrEdd4bnfFdRwAHP',
+						'charset'=>'utf8',
+						//使用持久化连接
+						'is_persistent'=>true,
+							//访问权重
+							//'weight'=>1,
+						]
+				];
+//数据库配置2，未使用读写分离配置
+$config['db2'] = [
+                    'dsn'=>'mysql:host=127.0.0.1;port=3307;dbname=huoxiaoyuan',
+                    'username'=>'huoxiaoyuan',
+                    'password'=>'PrEdd4bnfFdRwAHP',
+                    'charset'=>'utf8',
+                    //使用持久化连接
+                    'is_persistent'=>true,
+				];
 ```
 
 

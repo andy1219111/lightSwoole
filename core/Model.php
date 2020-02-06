@@ -14,10 +14,12 @@ Class Model {
     /**
     * 构造函数
     *
+    * @param string $config_key 数据库配置的键值，一般用于区分是哪个数据库配置，用于配置文件中有多套数据配置的情况
+    * @return void
     */
     public function __construct($config_key)
     {
-        $this->dbo = DBOManager::get_instance(config_item($config_key)); 
+        $this->dbo = DBOManager::get_instance($config_key); 
     }
     
     /**
